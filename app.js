@@ -16,6 +16,8 @@ var users;
 var products;
 var categories;
 
+app.use(bodyParser.json());
+
 MongoClient.connect("mongodb://miru:toor@ds021333.mlab.com:21333/heroku_b9f5wv05", function(err, database) {
   if(err) throw err;
   db = database;
