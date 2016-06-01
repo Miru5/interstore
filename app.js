@@ -76,7 +76,7 @@ app.get('/api/products', function(req, res) {
 app.post('/api/buy', function(req, res) {
     var id = req.param('id');
     
-        users.update({'_id' : new ObjectId(id)}, { $inc: { quantity:-1}});
+        products.update({'_id' : new ObjectId(id)}, { $inc: { quantity:-1}});
         res.send("ok");
 })
 
