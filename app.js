@@ -72,5 +72,13 @@ app.get('/api/products', function(req, res) {
         });
 });
 
+//buy product
+app.post('/api/buy', function(req, res) {
+    var id = req.param('id');
+    
+        users.update({'_id' : new ObjectId(id)}, { $inc: { quantity:-1}});
+        res.send("ok");
+})
+
 
 app.listen(port);
