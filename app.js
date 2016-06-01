@@ -77,7 +77,8 @@ app.post('/api/buy', function(req, res) {
     var id = req.param('id');
       products.find({_id:new ObjectId(id)}).toArray(function (err, items) {
             var x = items[0]["quantity"];
-            products.update({'_id' : new ObjectId(id)}, { $set: { quantity:x--}});
+            var result = x-1;
+            products.update({'_id' : new ObjectId(id)}, { $set: { quantity:result}});
         res.send("ok");
         });
        
